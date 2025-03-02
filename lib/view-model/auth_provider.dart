@@ -69,7 +69,6 @@ class AuthProvider extends ChangeNotifier {
   void startTimer() {
     if (getTimer != null) {
       if (getTimer!.isActive) {
-        print("ANa hon");
         getTimer!.cancel();
         setTimerDuration = const Duration(minutes: 3);
       }

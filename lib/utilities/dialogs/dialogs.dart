@@ -44,8 +44,7 @@ class HDialogManager {
         return Consumer<AuthProvider>(
           builder: (context, authProvider, _) {
             return PopScope(
-              // canPop: type == 'not verified' ? false : true,
-              canPop: true,
+              canPop: type == 'not verified' ? false : true,
               child: Center(
                 child: Material(
                   borderRadius: BorderRadius.circular(22),
@@ -206,7 +205,7 @@ class HDialogManager {
                                       ),
                                     ),
                                   )
-                            : SizedBox(),
+                            : const SizedBox(),
                       ],
                     ),
                   ),
@@ -302,6 +301,7 @@ class HDialogManager {
                                 } else if (value.length != 4) {
                                   return 'Verification code must be 4 characters';
                                 }
+                                return null;
                               },
                               hintText: 'Verification Code',
                               type: 'otp',
@@ -323,6 +323,7 @@ class HDialogManager {
                                   confirmedPassFocus.requestFocus();
                                   return 'Passwords do not match';
                                 }
+                                return null;
                               },
                               hintText: 'Re-type new password',
                             ),

@@ -26,15 +26,14 @@ class _MainScreenState extends State<MainScreen> {
           child: CustomedButton(
             text: "Log out",
             action: () async {
-              // var success = await authProvider.logout();
-              if (true) {
-                // Navigator.pushAndRemoveUntil(
-                //   context,
-                //   PushTransitionPageRoute(page: const WelcomeScreen()),
-                //   (route) => false,
-                // );
-                getIt<HDialogManager>()
-                    .showOtpDialog(userEmail: "", type: "not verified");
+              var success = await authProvider.logout();
+              if (success) {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  PushTransitionPageRoute(page: const WelcomeScreen()),
+                  (route) => false,
+                );
+             
               }
             },
             color: HColor.primary,
